@@ -4,7 +4,6 @@ using static AStarPathFinding.CellPanelClass;
 using static AStarPathFinding.ToggleObstacle;
 using static AStarPathFinding.LowestFCostCell;
 
-
 namespace AStarPathFinding;
 
 public partial class MainForm : Form
@@ -230,28 +229,12 @@ public partial class MainForm : Form
         return neighbors;
     }
 
-    private async Task ReconstructPath(CellPanel? startCell, CellPanel goalCell)
-    {
-        List<CellPanel> pathCells = new();
-        CellPanel? currentCell = goalCell;
-        while (currentCell != startCell)
-        {
-            pathCells.Add(currentCell!);
-            currentCell = currentCell!.Parent;
+    public static async Task ReconstructPath(CellPanel? startCell, CellPanel goalCell){
+        // Create an instance of PathReconstruct
+            PathReconstruct pathReconstruct = new();
 
-        }
-        pathCells.Add(startCell!);
-
-        for (int i = pathCells.Count - 2; i >= 0; i--)
-        {
-            pathCells[i].BackColor = Color.Blue;
-
-            // Introduce a delay here to visualize the path step by step
-            await Task.Delay(20); // Adjust the delay time as needed (in milliseconds)
-        }
-
-        goalCell.BackColor = Color.Green;
-        startCell!.BackColor = Color.Green;
+            // Call the ReconstructPath method on the instance
+            await pathReconstruct.ReconstructPath(startCell, goalCell);
     }
 
 
