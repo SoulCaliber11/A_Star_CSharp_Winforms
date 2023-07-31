@@ -12,7 +12,6 @@ public static class HcostCalculator
             int distanceColumns = Math.Abs(currentCell.ColumnIndex - goalCell.ColumnIndex);
             int totalDistance = distanceRows + distanceColumns;
 
-            // Calculate the Hcost using Manhattan distance
             int Hcost = totalDistance;
 
             return Hcost;

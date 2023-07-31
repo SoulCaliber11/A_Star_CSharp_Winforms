@@ -29,7 +29,6 @@ public partial class MainForm : Form
     }
     private void MainForm_Load(object? sender, EventArgs e)
     {
-        // Calculate the number of rows and columns for the grid
 
         // Set the size of each cell in the grid
         cellWidth = (this.ClientSize.Width - 3) / columns; // 3 is the gap size
@@ -62,7 +61,6 @@ public partial class MainForm : Form
         // Check if the space bar is pressed
         if (e.KeyCode == Keys.Space)
         {
-            // Print something when the space bar is clicked
             foreach (CellPanel cell in this.Controls)
             {
                 if (IsCellObstacle(cell))
@@ -230,10 +228,7 @@ public partial class MainForm : Form
     }
 
     public static async Task ReconstructPath(CellPanel? startCell, CellPanel goalCell){
-        // Create an instance of PathReconstruct
             PathReconstruct pathReconstruct = new();
-
-            // Call the ReconstructPath method on the instance
             await pathReconstruct.ReconstructPath(startCell, goalCell);
     }
 
